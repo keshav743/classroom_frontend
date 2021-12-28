@@ -39,7 +39,7 @@
       </dialog>
     </div>
     <div v-if="assignment != null">
-      <div class="p-4 m-2 border-2 rounded-lg">
+      <div class="p-4 m-4 border-2 rounded-lg">
         <h1 class="text-xl font-bold mb-2">
           {{ assignment.title }} ---> {{ assignment.belongsToRoom.roomName }}
         </h1>
@@ -72,7 +72,7 @@
         </div>
       </div>
       <div
-        class="p-4 m-2 border-2 rounded-lg"
+        class="p-4 m-4 border-2 rounded-lg"
         v-if="
           assignment.submittedPeople.filter(
             (e) => e['_id'] == $store.getters['user/id']
@@ -89,7 +89,7 @@
           Submit Assignment
         </button>
       </div>
-      <div v-else class="p-4 m-2 border-2 rounded-lg">
+      <div v-else class="p-4 m-4 border-2 rounded-lg">
         <p class="text-lg font-semibold">Your Work:</p>
         <div class="my-2 cursor-pointer">
           <div class="flex flex-row justify-between">

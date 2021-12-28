@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="absolute z-10 backdrop" v-if="loading">
+    <div class="backdrop" v-if="loading">
       <loading-spinner class="center mt-56"></loading-spinner>
     </div>
-    <div class="absolute z-10 backdrop" v-if="err != null">
+    <div class="backdrop" v-if="err != null">
       <dialog open class="rounded-lg my-36 p-10 text-center">
         <p class="text-xl font-bold p-2 w-56 mb-5 break-words">
           {{ err }}
@@ -18,7 +18,7 @@
       </dialog>
     </div>
     <div v-if="assignment">
-      <div class="border-2 rounded-lg p-4 m-2">
+      <div class="border-2 rounded-lg p-4 m-4">
         <h1 class="text-xl font-bold mb-2">
           {{ assignment.belongsToRoom.roomName }} --->
           {{ assignment.title }}
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div
-        class="border-2 rounded-lg p-4 m-2"
+        class="border-2 rounded-lg p-4 m-4"
         v-if="assignment.responses.length != 0"
       >
         <p class="text-xl font-bold">
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div v-else>
-        <div class="border-2 p-4 m-2 rounded-lg">
+        <div class="border-2 p-4 m-4 rounded-lg">
           <p class="font-bold text-xl">
             No submissions has been recieved yet....
           </p>

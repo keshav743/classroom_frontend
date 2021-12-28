@@ -3,7 +3,7 @@
     <div class="backdrop" v-if="loading">
       <loading-spinner class="center mt-56"></loading-spinner>
     </div>
-    <div class="absolute z-10 backdrop" v-if="$store.getters['err/loginError']">
+    <div class="backdrop" v-if="$store.getters['err/loginError']">
       <dialog open class="rounded-lg my-36 p-10 text-center">
         <p class="text-xl font-bold p-2 w-56">Auth Error</p>
         <p class="text-xl font-normal p-2 w-56 mb-5">

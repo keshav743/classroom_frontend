@@ -8,16 +8,14 @@
         <p class="hidden" ref="text">{{ channel["_id"] }}</p>
         <div class="flex flex-col md:flex-row">
           <div class="md:w-4/5">
-            <div
-              class="flex flex-col md:flex-row border-2 mx-2 md:mx-4 rounded-xl"
-            >
+            <div class="flex flex-col md:flex-row border-2 mx-4 rounded-xl">
               <img
                 class="w-full h-full md:w-44 md:h-44 md:rounded-l-xl rounded-t-xl md:rounded-r-none"
                 src="https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png"
                 alt="class-pic"
               />
               <div
-                class="ml-2 sm:ml-5 mt-2 flex flex-col justify-evenly break-words w-4/5"
+                class="ml-2 md:ml-5 mt-2 flex flex-col justify-evenly break-words w-4/5"
               >
                 <h1 class="text-2xl font-bold">
                   {{ channel.roomName }}
@@ -76,7 +74,7 @@
               <div v-for="activity in channel.activity" :key="activity['_id']">
                 <div
                   v-if="activity.type == 'Text'"
-                  class="border-2 rounded-xl mx-2 md:mx-5 mt-2 p-4"
+                  class="border-2 rounded-xl mx-4 mt-2 p-2"
                 >
                   <p class="text-lg font-semibold" style="color: #094d92">
                     {{
@@ -92,7 +90,7 @@
                 </div>
                 <div
                   v-if="activity.type == 'Assignment'"
-                  class="border-2 rounded-xl mx-2 md:mx-5 mt-2 p-4"
+                  class="border-2 rounded-xl mx-4 mt-2 p-2"
                 >
                   <p class="text-lg font-semibold" style="color: #094d92">
                     {{
@@ -147,7 +145,7 @@
               </div>
             </div>
           </div>
-          <div class="md:w-1/5 mx-4">
+          <div class="md:w-1/5 md:mx-0 mx-5 md:mb-0 mb-2">
             <h1 class="text-2xl font-semibold md:ml-4 md:my-1 my-4 underline">
               Participants
             </h1>

@@ -1,6 +1,6 @@
 <template>
   <div class="backdrop">
-    <dialog open class="rounded-lg my-36 w-56 md:w-96 p-6 sm:p-10 text-center">
+    <dialog open class="rounded-lg my-36 w-64 md:w-96 p-6 sm:p-10 text-center">
       <p class="text-2xl font-bold mb-4">Keshava Varmaa</p>
       <p class="text-xl font-bold mb-4">Project Name: Classroom</p>
       <p class="text-xl font-bold mb-4">

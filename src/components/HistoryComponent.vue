@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="absolute z-10 backdrop" v-if="loading">
+    <div class="backdrop" v-if="loading">
       <loading-spinner class="center mt-56"></loading-spinner>
     </div>
     <div v-if="err" class="backdrop">
