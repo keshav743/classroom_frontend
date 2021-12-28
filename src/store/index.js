@@ -30,13 +30,16 @@ const store = createStore({
   },
   actions: {
     async performLogin(context, payload) {
-      const result = await fetch("http://localhost:3000/api/auth/login/", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const result = await fetch(
+        "https://serene-reef-86132.herokuapp.com/api/auth/login/",
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (result.status >= 200 && result.status < 400) {
         await context.dispatch("setData", { result: result });
       } else if (result.status >= 400 && result.status < 500) {
@@ -50,13 +53,16 @@ const store = createStore({
       }
     },
     async performSignup(context, payload) {
-      const result = await fetch("http://localhost:3000/api/auth/signup/", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const result = await fetch(
+        "https://serene-reef-86132.herokuapp.com/api/auth/signup/",
+        {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (result.status >= 200 && result.status < 400) {
         await context.dispatch("setData", { result: result });
       } else {

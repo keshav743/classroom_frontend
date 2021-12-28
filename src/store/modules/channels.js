@@ -26,7 +26,7 @@ export default {
   actions: {
     async createChannel(context, payload) {
       const result = await fetch(
-        `http://localhost:3000/api/classroom/create/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/create/${payload.userId}`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -41,7 +41,7 @@ export default {
     },
     async joinChannel(context, payload) {
       const result = await fetch(
-        `http://localhost:3000/api/classroom/join/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/join/${payload.userId}`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -56,7 +56,7 @@ export default {
     },
     async getJoinedChannels(context, payload) {
       const result = await fetch(
-        `http://localhost:3000/api/classroom/joinedChannels/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/joinedChannels/${payload.userId}`,
         {
           method: "GET",
           headers: {
@@ -76,7 +76,7 @@ export default {
     },
     async getCreatedChannels(context, payload) {
       const result = await fetch(
-        `http://localhost:3000/api/classroom/createdChannels/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/createdChannels/${payload.userId}`,
         {
           method: "GET",
           headers: {
@@ -96,7 +96,7 @@ export default {
     },
     async getChannel(context, payload) {
       const fetchedChannel = await fetch(
-        `http://localhost:3000/api/classroom/getChannelInfo/${payload.userId}/${payload.channelId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getChannelInfo/${payload.userId}/${payload.channelId}`,
         {
           method: "GET",
           headers: {
