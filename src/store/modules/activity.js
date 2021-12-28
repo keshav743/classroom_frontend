@@ -5,7 +5,7 @@ export default {
   actions: {
     async sendMessage(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/sendMessage/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/sendMessage/${payload.userId}`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -23,7 +23,7 @@ export default {
     },
     async createAssignment(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/createAssignment/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/createAssignment/${payload.userId}`,
         {
           method: "POST",
           body: payload.data,
@@ -40,7 +40,7 @@ export default {
     },
     async getAssignment(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/getAssignment/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getAssignment/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
         {
           method: "GET",
           headers: {
@@ -56,7 +56,7 @@ export default {
     },
     getAssignmentFile(context, payload) {
       fetch(
-        `http://localhost:3000/api/classroom/getAssignmentFile/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getAssignmentFile/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
         {
           method: "GET",
           headers: {
@@ -80,7 +80,7 @@ export default {
     },
     getResponseFile(context, payload) {
       fetch(
-        `http://localhost:3000/api/classroom/getResponseFile/${payload.userId}/${payload.roomId}/${payload.responseId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getResponseFile/${payload.userId}/${payload.roomId}/${payload.responseId}`,
         {
           method: "GET",
           headers: {
@@ -104,7 +104,7 @@ export default {
     },
     async submitAssignment(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/submitAssignment/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/submitAssignment/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
         {
           method: "POST",
           body: payload.data,
@@ -121,7 +121,7 @@ export default {
     },
     async deleteResponseFile(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/deleteResponseFile/${payload.userId}/${payload.roomId}/${payload.assignmentId}/${payload.responseId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/deleteResponseFile/${payload.userId}/${payload.roomId}/${payload.assignmentId}/${payload.responseId}`,
         {
           method: "DELETE",
           headers: {
@@ -137,7 +137,7 @@ export default {
     },
     async getDeadlines(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/getDeadlines/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getDeadlines/${payload.userId}`,
         {
           method: "GET",
           headers: {
@@ -153,7 +153,7 @@ export default {
     },
     async getHistory(context, payload) {
       let result = await fetch(
-        `http://localhost:3000/api/classroom/getHistory/${payload.userId}`,
+        `https://serene-reef-86132.herokuapp.com/api/classroom/getHistory/${payload.userId}`,
         {
           method: "GET",
           headers: {

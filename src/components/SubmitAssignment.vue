@@ -15,7 +15,11 @@
         >
           You will be redirected to the channel in 3 seconds...
         </p>
-        <a @click="clear" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clear"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
@@ -25,7 +29,11 @@
         <p class="text-xl font-bold p-2 w-56 mb-5 break-words">
           {{ err }}
         </p>
-        <a @click="clear" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clear"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
@@ -41,7 +49,8 @@
         </p>
         <a
           @click="getAssignmentFile"
-          class="text-green-500 font-bold underline cursor-pointer block"
+          class="font-bold underline cursor-pointer block"
+          style="color: #094d92"
           >View Question Paper Here...</a
         >
         <div class="flex md:flex-row flex-col justify-between mt-4">
@@ -74,7 +83,7 @@
         <input type="file" @change="onFileChange" class="my-2" />
         <button
           class="text-white my-3 px-4 py-2 rounded-lg shadow-xl hover:opacity-90"
-          style="background-color: #52ad9c"
+          style="background-color: #094d92"
           @click="submitAssignment"
         >
           Submit Assignment
@@ -85,7 +94,8 @@
         <div class="my-2 cursor-pointer">
           <div class="flex flex-row justify-between">
             <p
-              class="font-bold text-green-500 underline"
+              class="font-bold underline"
+              style="color: #094d92"
               @click="getResponseFile"
             >
               {{ getResponseDetails.path.split("\\")[2] }}

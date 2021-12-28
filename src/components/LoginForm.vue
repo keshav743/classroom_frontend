@@ -9,13 +9,17 @@
         <p class="text-xl font-normal p-2 w-56 mb-5">
           {{ $store.getters["err/loginError"] }}
         </p>
-        <a @click="clearErr" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clearErr"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
     </div>
     <div class="p-6 py-8 border-2 rounded-lg mx-4 md:mx-40 shadow-lg">
-      <h1 class="text-2xl font-bold mb-5 my-2" style="color: #52ad9c">Login</h1>
+      <h1 class="text-2xl font-bold mb-5 my-2" style="color: #094d92">Login</h1>
       <div class="mb-2 w-full mt-4">
         <input
           type="email"
@@ -39,7 +43,7 @@
       <div class="text-center">
         <button
           class="text-white mt-3 px-4 py-2 rounded-lg shadow-xl hover:opacity-90"
-          style="background-color: #52ad9c"
+          style="background-color: #094d92"
           @click="triggerLoginAction"
         >
           Login Now
@@ -49,7 +53,7 @@
           <router-link
             to="/auth/signup"
             class="underline"
-            style="color: #52ad9c"
+            style="color: #094d92"
             >Signup</router-link
           >
         </p>
@@ -96,7 +100,7 @@ export default {
 
 <style scoped>
 .input-styles {
-  outline-color: #52ad9c;
+  outline-color: #094d92;
 }
 .input-styles::placeholder {
   color: grey;

@@ -6,10 +6,10 @@
     <div v-else>
       <div v-if="err == null && channel != null">
         <p class="hidden" ref="text">{{ channel["_id"] }}</p>
-        <div class="flex flex-col sm:flex-row">
+        <div class="flex flex-col md:flex-row">
           <div class="md:w-4/5">
             <div
-              class="flex flex-col md:flex-row border-2 m-2 md:m-4 rounded-xl"
+              class="flex flex-col md:flex-row border-2 mx-2 md:mx-4 rounded-xl"
             >
               <img
                 class="w-full h-full md:w-44 md:h-44 md:rounded-l-xl rounded-t-xl md:rounded-r-none"
@@ -72,13 +72,13 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div class="mb-2">
               <div v-for="activity in channel.activity" :key="activity['_id']">
                 <div
                   v-if="activity.type == 'Text'"
                   class="border-2 rounded-xl mx-2 md:mx-5 mt-2 p-4"
                 >
-                  <p class="text-lg font-semibold text-green-500">
+                  <p class="text-lg font-semibold" style="color: #094d92">
                     {{
                       channel.createdBy.firstName +
                       " " +
@@ -94,7 +94,7 @@
                   v-if="activity.type == 'Assignment'"
                   class="border-2 rounded-xl mx-2 md:mx-5 mt-2 p-4"
                 >
-                  <p class="text-lg font-semibold text-green-500">
+                  <p class="text-lg font-semibold" style="color: #094d92">
                     {{
                       channel.createdBy.firstName +
                       " " +
@@ -117,7 +117,8 @@
                       {{ getFormattedDate(new Date(activity.createdAt)) }}
                     </p>
                     <a
-                      class="text-md text-green-500 font-bold cursor-pointer"
+                      class="text-md font-bold cursor-pointer"
+                      style="color: #094d92"
                       :href="`/classroom/submission/${id}/${activity.assignmentRef['_id']}`"
                       v-if="
                         channel.createdBy['_id'] != $store.getters['user/id']
@@ -135,7 +136,8 @@
                       }}</a
                     >
                     <a
-                      class="text-md text-green-500 font-bold underline cursor-pointer"
+                      class="text-md font-bold underline cursor-pointer"
+                      style="color: #094d92"
                       :href="`/classroom/showResponses/${id}/${activity.assignmentRef['_id']}`"
                       v-else
                       >Show Responses</a
@@ -146,11 +148,11 @@
             </div>
           </div>
           <div class="md:w-1/5 mx-4">
-            <h1 class="text-2xl font-semibold md:ml-4 my-4 underline">
+            <h1 class="text-2xl font-semibold md:ml-4 md:my-1 my-4 underline">
               Participants
             </h1>
             <div class="md:ml-4">
-              <p class="text-xl break-words font-bold text-green-500">
+              <p class="text-xl break-words font-bold" style="color: #094d92">
                 {{
                   channel.createdBy.firstName + " " + channel.createdBy.lastName
                 }}
@@ -172,7 +174,8 @@
           v-if="channel.createdBy['_id'] == $store.getters['user/id']"
         >
           <button
-            class="text-2xl text-white bg-green-500 w-12 h-12 rounded-full shadow-lg hover:bg-green-400"
+            class="text-2xl text-white w-12 h-12 rounded-full shadow-lg hover:opacity-90"
+            style="background-color: #094d92"
             @click="moveToCreateActivity()"
           >
             +
@@ -187,7 +190,11 @@
           <p class="text-xl font-normal p-2 w-56 mb-5 break-words">
             {{ err }}
           </p>
-          <a @click="clear" class="underline text-green-500 cursor-pointer">
+          <a
+            @click="clear"
+            class="underline cursor-pointer"
+            style="color: #094d92"
+          >
             Okay
           </a>
         </dialog>

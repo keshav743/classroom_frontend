@@ -9,12 +9,14 @@
       <div class="flex flex-row justify-around">
         <a
           href="https://github.com/keshav743"
-          class="text-green-500 underline font-bold"
+          class="underline font-bold"
+          style="color: #094d92"
           >Github</a
         >
         <a
           href="https://github.com/keshav743"
-          class="text-green-500 underline font-bold"
+          class="underline font-bold"
+          style="color: #094d92"
           >Project Repo</a
         >
       </div>

@@ -9,7 +9,8 @@
           {{ err }}
         </p>
         <a
-          class="text-green-500 underline cursor-pointer"
+          class="underline cursor-pointer"
+          style="color: #094d92"
           @click="() => $router.go()"
           >Reload</a
         >

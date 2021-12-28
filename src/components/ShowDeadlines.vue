@@ -9,7 +9,8 @@
           {{ err }}
         </p>
         <a
-          class="text-green-500 underline cursor-pointer"
+          class="underline cursor-pointer"
+          style="color: #094d92"
           @click="() => $router.go()"
           >Reload</a
         >
@@ -27,7 +28,7 @@
         </div>
       </div>
       <div class="border-2 rounded-lg p-4 m-2" v-else>
-        <p class="text-xl font-bold text-red-700">Upcoming Deadlines</p>
+        <p class="text-xl font-bold">Upcoming Deadlines</p>
         <div
           v-for="deadline in fetchedDeadlines"
           :key="deadline['_id']"
@@ -36,6 +37,7 @@
           <div class="flex flex-row justify-between">
             <p
               class="font-bold cursor-pointer hover:underline"
+              style="color: #094d92"
               @click="
                 moveToSubmit(deadline.belongsToRoom['_id'], deadline['_id'])
               "
@@ -44,6 +46,7 @@
             </p>
             <p
               class="font-bold underline cursor-pointer"
+              style="color: #094d92"
               @click="
                 moveToSubmit(deadline.belongsToRoom['_id'], deadline['_id'])
               "
@@ -58,14 +61,11 @@
             >
               {{ deadline.belongsToRoom.roomName }}
             </p>
-            <p
-              class="text-green-500 font-semibold"
-              v-if="new Date(deadline.deadline) - Date.now() > 0"
-            >
+            <p v-if="new Date(deadline.deadline) - Date.now() > 0">
               due
               {{ getFormattedDate(new Date(deadline.deadline)) }}
             </p>
-            <p class="text-red-500 font-semibold" v-else>
+            <p v-else>
               due past
               {{ getFormattedDate(new Date(deadline.deadline)) }}
             </p>
@@ -73,11 +73,12 @@
         </div>
       </div>
       <div v-if="completed.length > 0" class="border-2 rounded-lg p-4 m-2">
-        <p class="text-xl font-bold text-green-700">Completed</p>
+        <p class="text-xl font-bold">Completed</p>
         <div v-for="deadline in completed" :key="deadline['_id']" class="my-2">
           <div class="flex flex-row justify-between">
             <p
               class="font-bold cursor-pointer hover:underline"
+              style="color: #094d92"
               @click="
                 moveToSubmit(deadline.belongsToRoom['_id'], deadline['_id'])
               "
@@ -85,7 +86,8 @@
               {{ deadline.title }}
             </p>
             <p
-              class="text-green-500 font-bold underline cursor-pointer"
+              class="font-bold underline cursor-pointer"
+              style="color: #094d92"
               @click="
                 moveToSubmit(deadline.belongsToRoom['_id'], deadline['_id'])
               "

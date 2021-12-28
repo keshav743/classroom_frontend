@@ -2,8 +2,8 @@
   <div>
     <div class="flex flex-col">
       <div
-        class="w-screen h-12 shadow-xl fixed"
-        style="background-color: #52ad9c"
+        class="w-screen h-12 shadow-md fixed"
+        style="background-color: #094d92"
       >
         <div class="flex flex-row justify-between px-4">
           <h1 class="text-white text-2xl py-2 font-bold">Classroom</h1>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <base-card class="mx-4 mb-8 p-5 border-2">
-      <h1 class="text-2xl font-bold mb-2 inline">
+      <h1 class="text-2xl font-bold mb-2 inline" style="color: #094d92">
         Welcome, {{ $store.getters["user/fullName"] }}
       </h1>
       <p class="inline text-2xl">😊</p>
@@ -21,7 +21,7 @@
       </h1>
     </base-card>
     <div
-      class="grid md:grid-cols-3 md:grid-rows-2 lg:grid-cols-5 lg:grid-rows-1 gap-10 mx-4"
+      class="grid md:grid-cols-3 md:grid-rows-2 lg:grid-cols-5 lg:grid-rows-1 gap-10 mx-4 mb-2"
     >
       <div v-for="item in items" :key="item.id">
         <base-card
@@ -34,6 +34,7 @@
               :src="item.coverImage"
               alt="recipe-photo"
             />
+            <hr />
             <p class="text-lg font-semibold mx-2 mt-2">{{ item.name }}</p>
             <p
               class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
@@ -59,7 +60,7 @@ export default {
           id: 1,
           name: "Channel",
           coverImage:
-            "https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png",
+            "https://image.freepik.com/free-vector/computer-class-open-space-office-empty-interior_107791-2137.jpg",
           description: "Channels you joined and created will be visible here.",
           redirect: "channels",
         },
@@ -67,7 +68,7 @@ export default {
           id: 2,
           name: "Deadlines",
           coverImage:
-            "https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png",
+            "https://image.freepik.com/free-vector/businessman-working-clock-hand-businesswoman-with-laptop-productivity-efficiency-production-qualification-concept-white-background_335657-1703.jpg",
           description:
             "Your Upcoming deadlines for assignments will be shown here.",
           redirect: "deadlines",
@@ -76,7 +77,7 @@ export default {
           id: 3,
           name: "History",
           coverImage:
-            "https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png",
+            "https://image.freepik.com/free-vector/personal-files-concept-illustration_114360-5289.jpg",
           description:
             "The assignments that you submitted and the activities you did will be visible here.",
           redirect: "history",
@@ -85,7 +86,7 @@ export default {
           id: 4,
           name: "Create/Join Channel",
           coverImage:
-            "https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png",
+            "https://image.freepik.com/free-vector/learning-concept-illustration_114360-6186.jpg",
           description: "You can create new channels and join new channels",
           redirect: "create",
         },
@@ -93,7 +94,7 @@ export default {
           id: 5,
           name: "About Us",
           coverImage:
-            "https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png",
+            "https://image.freepik.com/free-vector/company-employees-sharing-thoughts-ideas_74855-5469.jpg",
           description: "A small segment to introduce myself 😊.",
           redirect: "about",
         },

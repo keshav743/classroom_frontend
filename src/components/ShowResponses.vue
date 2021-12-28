@@ -8,7 +8,11 @@
         <p class="text-xl font-bold p-2 w-56 mb-5 break-words">
           {{ err }}
         </p>
-        <a @click="clear" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clear"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
@@ -24,7 +28,8 @@
         </p>
         <a
           @click="getAssignmentFile"
-          class="text-green-500 font-bold underline cursor-pointer block"
+          class="font-bold underline cursor-pointer block"
+          style="color: #094d92"
           >View Question Paper Here...</a
         >
         <div class="flex sm:flex-row flex-col justify-between">
@@ -54,7 +59,7 @@
         <div v-for="response in assignment.responses" :key="response['_id']">
           <div class="rounded-lg my-2 cursor-pointer">
             <div class="flex flex-row justify-between">
-              <p class="text-xl font-bold text-green-500">
+              <p class="text-xl font-bold" style="color: #094d92">
                 {{
                   response.submittedBy.firstName +
                   " " +

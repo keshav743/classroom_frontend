@@ -12,76 +12,116 @@
             $store.getters['channel/createdChannels'].length > 0)
         "
       >
+        <h1 class="text-2xl font-bold mx-4">Your Channels</h1>
         <div
-          class="border-2 mx-2 p-4 rounded-xl"
           v-if="
             $store.getters['channel/joinedChannels'] &&
-            $store.getters['channel/joinedChannels'].length > 0
+            $store.getters['channel/createdChannels']
           "
         >
-          <h1 class="text-2xl font-bold">Channels you Joined</h1>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6 mt-2"
-          >
-            <base-card
-              class="hover:shadow-md cursor-pointer"
-              @click="moveTo(jChannel['_id'])"
-              v-for="jChannel in $store.getters['channel/joinedChannels']"
-              :key="jChannel['_id']"
+          <div class="mx-4 rounded-xl">
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6 mt-2"
             >
-              <div class="w-full h-3/6">
-                <img
-                  class="object-center object-cover w-full h-60 rounded-t-xl"
-                  src="https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png"
-                  alt="recipe-photo"
-                />
-                <p class="text-lg font-semibold mx-2 mt-2">
-                  {{ jChannel.roomName }}
-                </p>
-                <p
-                  class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
-                  style="white-space: initial"
-                >
-                  {{ jChannel.roomDescription }}
-                </p>
-              </div>
-            </base-card>
+              <base-card
+                class="hover:shadow-md cursor-pointer"
+                @click="moveTo(jChannel['_id'])"
+                v-for="jChannel in [
+                  ...$store.getters['channel/joinedChannels'],
+                  ...$store.getters['channel/createdChannels'],
+                ]"
+                :key="jChannel['_id']"
+              >
+                <div class="w-full h-3/6">
+                  <img
+                    class="object-center object-cover w-full h-60 rounded-t-xl"
+                    src="https://gstatic.com/classroom/themes/Honors.jpg"
+                    alt="recipe-photo"
+                  />
+                  <p class="text-lg font-semibold mx-2 mt-2">
+                    {{ jChannel.roomName }}
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
+                    style="white-space: initial"
+                  >
+                    {{ jChannel.roomDescription }}
+                  </p>
+                </div>
+              </base-card>
+            </div>
           </div>
         </div>
-        <div
-          class="border-2 mx-2 p-4 rounded-xl mt-4"
-          v-if="
-            $store.getters['channel/createdChannels'] &&
-            $store.getters['channel/createdChannels'].length > 0
-          "
-        >
-          <h1 class="text-2xl font-bold">Channels you Created</h1>
+        <div v-else>
           <div
-            class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6 mt-2"
+            class="mx-4 rounded-xl mt-4"
+            v-if="
+              $store.getters['channel/createdChannels'] &&
+              $store.getters['channel/createdChannels'].length > 0
+            "
           >
-            <base-card
-              class="hover:shadow-md cursor-pointer"
-              v-for="cChannel in $store.getters['channel/createdChannels']"
-              :key="cChannel['_id']"
-              @click="moveTo(cChannel['_id'])"
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6 mt-2"
             >
-              <div class="w-full h-3/6">
-                <img
-                  class="object-center object-cover w-full h-60 rounded-t-xl"
-                  src="https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png"
-                  alt="recipe-photo"
-                />
-                <p class="text-lg font-semibold mx-2 mt-2">
-                  {{ cChannel.roomName }}
-                </p>
-                <p
-                  class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
-                  style="white-space: initial"
-                >
-                  {{ cChannel.roomDescription }}
-                </p>
-              </div>
-            </base-card>
+              <base-card
+                class="hover:shadow-md cursor-pointer"
+                v-for="cChannel in $store.getters['channel/createdChannels']"
+                :key="cChannel['_id']"
+                @click="moveTo(cChannel['_id'])"
+              >
+                <div class="w-full h-3/6">
+                  <img
+                    class="object-center object-cover w-full h-60 rounded-t-xl"
+                    src="https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png"
+                    alt="recipe-photo"
+                  />
+                  <p class="text-lg font-semibold mx-2 mt-2">
+                    {{ cChannel.roomName }}
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
+                    style="white-space: initial"
+                  >
+                    {{ cChannel.roomDescription }}
+                  </p>
+                </div>
+              </base-card>
+            </div>
+          </div>
+          <div
+            class="mx-4 rounded-xl mt-4"
+            v-if="
+              $store.getters['channel/joinedChannels'] &&
+              $store.getters['channel/joinedChannels'].length > 0
+            "
+          >
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-6 mt-2"
+            >
+              <base-card
+                class="hover:shadow-md cursor-pointer"
+                v-for="cChannel in $store.getters['channel/joinedChannels']"
+                :key="cChannel['_id']"
+                @click="moveTo(cChannel['_id'])"
+              >
+                <div class="w-full h-3/6">
+                  <img
+                    class="object-center object-cover w-full h-60 rounded-t-xl"
+                    src="https://media4.giphy.com/avatars/greggunn/DLaiwtfzrZi4.png"
+                    alt="recipe-photo"
+                  />
+                  <p class="text-lg font-semibold mx-2 mt-2">
+                    {{ cChannel.roomName }}
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 mx-2 my-2 h-20 overflow-ellipsis overflow-hidden"
+                    style="white-space: initial"
+                  >
+                    {{ cChannel.roomDescription }}
+                  </p>
+                </div>
+              </base-card>
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +131,10 @@
           <p class="text-xl font-normal p-2 w-56 mb-5">
             Create/Join a Channel Now
           </p>
-          <a href="create" class="underline text-green-500 cursor-pointer"
+          <a
+            href="create"
+            class="underline cursor-pointer"
+            style="color: #094d92"
             >Create/Join</a
           >
         </dialog>

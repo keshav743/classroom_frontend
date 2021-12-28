@@ -10,7 +10,11 @@
             success.type == "message" ? "Message Sent" : "Assignment Created"
           }}
         </p>
-        <a @click="clear" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clear"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
@@ -20,12 +24,16 @@
         <p class="text-xl font-normal p-2 w-56 mb-5 break-words">
           {{ err }}
         </p>
-        <a @click="clear" class="underline text-green-500 cursor-pointer">
+        <a
+          @click="clear"
+          class="underline cursor-pointer"
+          style="color: #094d92"
+        >
           Okay
         </a>
       </dialog>
     </div>
-    <div class="border-2 m-5 p-5 rounded-xl shadow-md">
+    <div class="border-2 m-5 p-5 rounded-xl">
       <h1 class="font-bold text-xl">Send Message</h1>
       <div class="mb-2 w-full mt-4">
         <input
@@ -38,14 +46,14 @@
         />
         <button
           class="text-white my-3 px-4 py-2 rounded-lg shadow-xl hover:opacity-90"
-          style="background-color: #52ad9c"
+          style="background-color: #094d92"
           @click="sendMessage"
         >
           Send
         </button>
       </div>
     </div>
-    <div class="border-2 m-5 p-5 rounded-xl shadow-md">
+    <div class="border-2 m-5 p-5 rounded-xl">
       <h1 class="font-bold text-xl">Create Assignment</h1>
       <div class="mb-2 w-full mt-4">
         <input
@@ -72,7 +80,7 @@
         </div>
         <button
           class="text-white my-3 px-4 py-2 rounded-lg shadow-xl hover:opacity-90"
-          style="background-color: #52ad9c"
+          style="background-color: #094d92"
           @click="createAssignment"
         >
           Create Assignment
