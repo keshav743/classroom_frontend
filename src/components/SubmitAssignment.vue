@@ -98,7 +98,7 @@
               style="color: #094d92"
               @click="getResponseFile"
             >
-              {{ getResponseDetails.path.split("\\")[2] }}
+              {{ getResponseDetails.path.split("/")[2] }}
             </p>
             <div @click="deleteAssignment">
               <svg
