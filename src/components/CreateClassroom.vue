@@ -54,8 +54,8 @@
         </a>
       </dialog>
     </div>
-    <div class="border-2 m-4 p-2 rounded-xl">
-      <h1 class="font-bold text-xl">Create Channels</h1>
+    <div class="border-2 m-2 p-5 rounded-xl">
+      <h1 class="font-bold text-xl">Create Channel</h1>
       <div class="mb-2 w-full mt-4">
         <input
           type="text"
@@ -82,7 +82,7 @@
         </button>
       </div>
     </div>
-    <div class="border-2 m-5 p-5 rounded-xl">
+    <div class="border-2 m-2 p-5 rounded-xl">
       <h1 class="font-bold text-xl">Join Channel</h1>
       <div class="mb-2 w-full mt-4">
         <input
