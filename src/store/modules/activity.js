@@ -54,32 +54,8 @@ export default {
         return result;
       }
     },
-    getAssignmentFile(context, payload) {
-      fetch(
-        `https://serene-reef-86132.herokuapp.com/api/classroom/getAssignmentFile/${payload.userId}/${payload.roomId}/${payload.assignmentId}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/pdf",
-            authorization: store.getters.token,
-          },
-        }
-      )
-        .then((res) => res.blob())
-        .then((response) => {
-          console.log(response);
-          const file = new Blob([response], {
-            type: "application/pdf",
-          });
-          const fileURL = URL.createObjectURL(file);
-          window.open(fileURL);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-    getResponseFile(context, payload) {
-      fetch(
+    async getResponseFile(context, payload) {
+      let result = await fetch(
         `https://serene-reef-86132.herokuapp.com/api/classroom/getResponseFile/${payload.userId}/${payload.roomId}/${payload.responseId}`,
         {
           method: "GET",
@@ -88,19 +64,12 @@ export default {
             authorization: store.getters.token,
           },
         }
-      )
-        .then((res) => res.blob())
-        .then((response) => {
-          console.log(response);
-          const file = new Blob([response], {
-            type: "application/pdf",
-          });
-          const fileURL = URL.createObjectURL(file);
-          window.open(fileURL);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      );
+      if (result.status >= 200 && result.status < 400) {
+        result = await result.json();
+        console.log(result);
+        return result;
+      }
     },
     async submitAssignment(context, payload) {
       let result = await fetch(

@@ -48,7 +48,7 @@
           {{ assignment.instructions }}
         </p>
         <a
-          @click="getAssignmentFile"
+          @click="openFileUrl"
           class="font-bold underline cursor-pointer block"
           style="color: #094d92"
           >View Question Paper Here...</a
@@ -98,7 +98,7 @@
               style="color: #094d92"
               @click="getResponseFile"
             >
-              {{ getResponseDetails.path.split("/")[2] }}
+              {{ getResponseDetails.path.split("/")[1] }}
             </p>
             <div @click="deleteAssignment">
               <svg
@@ -139,6 +139,8 @@ export default {
       loading: false,
       err: null,
       success: null,
+      fileUrl: null,
+      responseFileUrl: null,
     };
   },
   props: ["id", "assignmentId"],
@@ -163,10 +165,14 @@ export default {
       return;
     }
     this.assignment = fetchedAssignment.data.assignment;
+    this.fileUrl = fetchedAssignment.data.fileUrl;
     console.log(this.assignment.title);
     this.loading = false;
   },
   methods: {
+    openFileUrl() {
+      window.open(this.fileUrl);
+    },
     onFileChange(e) {
       const selectedFile = e.target.files[0];
       this.assignmentFile = selectedFile;
@@ -179,20 +185,20 @@ export default {
         this.err = null;
       }
     },
-    async getAssignmentFile() {
-      await this.$store.dispatch("activity/getAssignmentFile", {
-        userId: this.$store.getters["user/id"],
-        assignmentId: this.assignmentId,
-        roomId: this.id,
-      });
-    },
     async getResponseFile() {
-      await this.$store.dispatch("activity/getResponseFile", {
-        userId: this.$store.getters["user/id"],
-        assignmentId: this.responseId,
-        responseId: this.getResponseDetails["_id"],
-        roomId: this.id,
-      });
+      this.loading = true;
+      const responseFileUrl = await this.$store.dispatch(
+        "activity/getResponseFile",
+        {
+          userId: this.$store.getters["user/id"],
+          assignmentId: this.responseId,
+          responseId: this.getResponseDetails["_id"],
+          roomId: this.id,
+        }
+      );
+      this.responseFileUrl = responseFileUrl.data.fileUrl;
+      this.loading = false;
+      window.open(responseFileUrl.data.fileUrl);
     },
     async deleteAssignment() {
       this.loading = true;

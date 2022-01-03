@@ -27,7 +27,7 @@
           {{ assignment.instructions }}
         </p>
         <a
-          @click="getAssignmentFile"
+          @click="openFileUrl"
           class="font-bold underline cursor-pointer block"
           style="color: #094d92"
           >View Question Paper Here...</a
@@ -113,6 +113,7 @@ export default {
       loading: false,
       err: null,
       assignment: null,
+      fileUrl: null,
     };
   },
   async mounted() {
@@ -132,6 +133,7 @@ export default {
     ) {
       console.log(fetchedAssignment.data.assignment);
       this.assignment = fetchedAssignment.data.assignment;
+      this.fileUrl = fetchedAssignment.data.fileUrl;
       this.loading = false;
     } else {
       this.loading = false;
@@ -142,6 +144,9 @@ export default {
     }
   },
   methods: {
+    openFileUrl() {
+      window.open(this.fileUrl);
+    },
     getFormattedSubmitDate(givenDate) {
       console.log(moment(givenDate).fromNow());
       return moment(givenDate).fromNow();
@@ -149,20 +154,19 @@ export default {
     getFormattedDate(givenDate) {
       return moment(givenDate).format("MMMM Do YYYY, h:mm:ss a");
     },
-    async getAssignmentFile() {
-      await this.$store.dispatch("activity/getAssignmentFile", {
-        userId: this.$store.getters["user/id"],
-        assignmentId: this.assignmentId,
-        roomId: this.id,
-      });
-    },
     async getResponseFile(id) {
-      await this.$store.dispatch("activity/getResponseFile", {
-        userId: this.$store.getters["user/id"],
-        assignmentId: this.responseId,
-        responseId: id,
-        roomId: this.id,
-      });
+      this.loading = true;
+      const responseUrl = await this.$store.dispatch(
+        "activity/getResponseFile",
+        {
+          userId: this.$store.getters["user/id"],
+          assignmentId: this.responseId,
+          responseId: id,
+          roomId: this.id,
+        }
+      );
+      this.loading = false;
+      window.open(responseUrl.data.fileUrl);
     },
   },
 };
